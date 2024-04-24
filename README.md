@@ -40,45 +40,53 @@ import React, { Component } from "react";
 import MessageDialogBox from 'react-weblineindia-message-dialog-box'
 
 class Test extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-       visible:true,
-       content:"Hello",
-       showHeader:"Modal Title",
-       buttons:[{
-         id:1,
-         title:"Yes"
-       },
-       {
-         id:2,
-         title:"No"
-       },
-       ]
+      visible: true,
+      content: "Hello",
+      showHeader: "Modal Title",
+      buttons: [
+        {
+          id: 1,
+          title: "Yes"
+        },
+        {
+          id: 2,
+          title: "No"
+        }
+      ]
     };
-    onClose(value){
-      this.setState({
-        visible : value
-      })
-    }
-    onButtonClick(event ,value){
-        this.setState({
-        visible : !value
-      })
-    }
-    render(){
+  }
+
+  onClose(value) {
+    this.setState({
+      visible: value
+    });
+  }
+
+  onButtonClick(event, value) {
+    this.setState({
+      visible: !value
+    });
+  }
+
+  render() {
     return (
       <div>
         <MessageDialogBox
-        content={this.state.content}
-        visible={this.state.visible}
-        buttons={this.props.buttons}
-        onClose={this.onClose.bind(this)}
-        onButtonClick={this.onButtonClick.bind(this)}
+          content={this.state.content}
+          visible={this.state.visible}
+          buttons={this.state.buttons} 
+          onClose={this.onClose.bind(this)}
+          onButtonClick={this.onButtonClick.bind(this)}
         />
       </div>
-    )}
+    );
+  }
 }
+
+export default Test;
 ```
 
 ## Available Props
@@ -112,7 +120,7 @@ class Test extends Component {
 
 ## Collection of Components
 
-We have built many other components and free resources for software development in various programming languages. Kindly click here to view our [Free Resources for Software Development](https://www.weblineindia.com/communities.html).
+We have built many other components and free resources for software development in various programming languages. Kindly click here to view our [Free Resources for Software Development](https://www.weblineindia.com/software-development-resources.html).
 
 ---
 

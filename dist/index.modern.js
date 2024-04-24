@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
@@ -1127,12 +1127,12 @@ var MesaageDialogBox = /*#__PURE__*/function (_Component) {
     this.props.onButtonClick(event, this.props.visible);
   };
   _proto.renderExternalButton = function renderExternalButton() {
-    return /*#__PURE__*/React.createElement("button", {
+    return /*#__PURE__*/React.createElement(Button, {
       className: "close",
       style: {
-        position: "absolute",
-        top: "15px",
-        right: "15px"
+        position: 'absolute',
+        top: '15px',
+        right: '15px'
       },
       onClick: this.toggle.bind(this)
     }, "\xD7");
@@ -1142,17 +1142,18 @@ var MesaageDialogBox = /*#__PURE__*/function (_Component) {
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Modal, {
       isOpen: this.props.visible,
       toggle: this.toggle.bind(this),
-      external: this.renderExternalButton
+      external: this.renderExternalButton()
     }, this.props.showHeader ? /*#__PURE__*/React.createElement(ModalHeader, {
       toggle: this.toggle.bind(this)
-    }, this.props.headerContent) : "", /*#__PURE__*/React.createElement(ModalBody, null, this.props.content), this.props.buttons && this.props.buttons.length > 0 ? /*#__PURE__*/React.createElement(ModalFooter, null, this.props.buttons.map(function (item) {
+    }, this.props.headerContent) : '', /*#__PURE__*/React.createElement(ModalBody, null, this.props.content), this.props.buttons && this.props.buttons.length > 0 ? /*#__PURE__*/React.createElement(ModalFooter, null, this.props.buttons.map(function (item) {
       return /*#__PURE__*/React.createElement(Button, {
+        key: item.id,
         color: "primary",
         id: item.id,
         name: item.title,
         onClick: _this.onButtonClick.bind(_this)
       }, item.title);
-    })) : ""));
+    })) : ''));
   };
   return MesaageDialogBox;
 }(Component);
@@ -1168,10 +1169,10 @@ MesaageDialogBox.propTypes = {
   onButtonClick: propTypes.func
 };
 MesaageDialogBox.defaultProps = {
-  id: "",
-  name: "",
-  content: "Hello From WeblineIndia",
-  headerContent: "Modal",
+  id: '',
+  name: '',
+  content: 'Hello From WeblineIndia',
+  headerContent: 'Modal',
   buttons: [],
   visible: true,
   showHeader: true,
